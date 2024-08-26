@@ -1,0 +1,10 @@
+{
+  "salt": "overwritten",
+  "ip_white_list" : ["127.0.0.1", "::1"],
+  "pagination": {
+    "size": 10,
+    "order-by": "",
+    "sort": "asc",
+    "page": 1
+  }
+}

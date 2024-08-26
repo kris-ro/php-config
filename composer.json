@@ -1,0 +1,22 @@
+{
+    "name": "kris-ro/php-config",
+    "description": "Setup, getter and setter for configuration in PHP applications",
+    "type": "library",
+    "require": {
+        "php": "8.*",
+        "phpunit/phpunit": "^10.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "KrisRo\\PhpConfig\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "cristianradu",
+            "email": "kris_ro@yahoo.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
