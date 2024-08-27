@@ -15,6 +15,11 @@ class ConfigTest extends TestCase {
     // getter call
     $this->assertEquals('k', Config::get('database/username'));
     $this->assertEquals(10, Config::get('pagination/size'));
+
+    // setter call
+    $this->assertEquals('k2', Config::set('database/username', 'k2'));
+    // verify new value
+    $this->assertEquals('k2', Config::get('database/username'));
   }
   
   public function testLoadAllConfigFilesInPath() {
@@ -36,6 +41,14 @@ class ConfigTest extends TestCase {
       ->loadConfigFile($configPath . '/config-3.json')
       ->loadConfigFile($configPath . '/config-2.json')
       ->loadConfigFile($configPath . '/config-1.json');
+    
+    $this->assertEquals('123456', Config::salt());
+    
+    (new Config())
+      ->setConfigPath($configPath)
+      ->loadConfigFile('config-3.json')
+      ->loadConfigFile('config-2.json')
+      ->loadConfigFile('config-1.json');
     
     $this->assertEquals('123456', Config::salt());
   }

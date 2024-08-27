@@ -125,6 +125,12 @@ class Config {
     ];
   }
   
+  public function setConfigPath(string $configPath): self {
+    self::$config['paths']['configs'] = $configPath;
+    
+    return $this;
+  }
+  
   /**
    * Load config from a specified file
    * 
