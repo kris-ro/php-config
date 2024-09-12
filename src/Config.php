@@ -8,7 +8,7 @@ namespace KrisRo\PhpConfig;
 
 class Config {
   
-  private static $config = [];
+  protected static $config = [];
 
   /**
    * If <code>$configPath</code> is provided, every JSON file is loaded
