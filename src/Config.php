@@ -118,7 +118,7 @@ class Config {
       'domain' => $_SERVER['SERVER_NAME'],
       'uri' => $_SERVER['REQUEST_URI'],
       'query_string' => $_SERVER['QUERY_STRING'],
-      'components' => array_filter(preg_split('%(/|\?|&)%', $_SERVER['REQUEST_URI'])),
+      'components' => preg_split('%(/|\?|&)%', trim($_SERVER['REQUEST_URI'], '/')),
     ] : [
       'protocol' => '',
       'domain' => '',
