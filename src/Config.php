@@ -159,7 +159,7 @@ class Config {
     self::$config['paths']['configs'] = $configPath;
 
     if (!($list = scandir($configPath))) {
-      trigger_error('Invalid config path', E_USER_ERROR);
+      throw new \RuntimeException('Invalid config path');
       return;
     }
 
@@ -187,19 +187,19 @@ class Config {
     }
 
     if (!file_exists($configFile)) {
-      trigger_error('Invalid config : ' . $configFile, E_USER_ERROR);
+      throw new \RuntimeException('Invalid config : ' . $configFile);
       return;
     }
 
     if (!$configItem = file_get_contents($configFile)) {
-      trigger_error('Invalid config : ' . $configFile, E_USER_ERROR);
+      throw new \RuntimeException('Invalid config : ' . $configFile);
       return;
     }
 
     if ($type == 'json') {
       $configItems = json_decode($configItem, true);
       if (json_last_error() != JSON_ERROR_NONE) {
-        trigger_error('Invalid JSON : ' . $configFile . " ; " . json_last_error_msg(), E_USER_ERROR);
+        throw new \RuntimeException('Invalid JSON : ' . $configFile . " ; " . json_last_error_msg());
         return;
       }
     }
